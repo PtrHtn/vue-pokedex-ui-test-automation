@@ -1,14 +1,11 @@
-import PageObject.User;
-
 public class Main {
 
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) {
 
         String[] arguments = {
-                "-g", "classpath:StepDefinition",
+                "-g", "classpath:step_definitions",
                 "-t", "@SmokeTest",
-//                "-t", args[0],
-                "classpath:Feature",
+                "classpath:feature_files",
                 "-m"
         };
 
