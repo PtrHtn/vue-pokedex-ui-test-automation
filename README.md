@@ -14,6 +14,6 @@
 - [Maven 3.6.3+](https://maven.apache.org)
 - [Chrome browser](https://www.google.com/chrome/) tested with version 84 and 85
 
-#### To run vue-pokedex-ui-test-automation.jar from terminal
+#### To run vue-pokedex-ui-test-automation.jar file from terminal, enter:
 > `java -jar vue-pokedex-ui-test-automation.jar`
 
