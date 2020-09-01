@@ -1,7 +1,7 @@
 # vue-pokedex-ui-test-automation
-####UI test automation for _vue-pokedex_ project at <https://github.com/shadforth/vue-pokedex>
+#### UI test automation for _vue-pokedex_ project at <https://github.com/shadforth/vue-pokedex>
 
-###Built with
+### Built with
 - [JUnit 5 v5.6.2](https://github.com/junit-team/junit5)
 - [Cucumber v6.6.0](https://github.com/cucumber/cucumber)
 - [OpenJDK JDK 14](https://jdk.java.net/14/)
@@ -14,6 +14,6 @@
 - [Maven 3.6.3+](https://maven.apache.org)
 - [Chrome browser](https://www.google.com/chrome/) tested with version 84 and 85
 
-####To run vue-pokedex-ui-test-automation.jar from terminal
+#### To run vue-pokedex-ui-test-automation.jar from terminal
 > `java -jar vue-pokedex-ui-test-automation.jar`
 
