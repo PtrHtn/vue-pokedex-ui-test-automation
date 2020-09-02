@@ -19,8 +19,9 @@ public class User {
     private final By pokemonsListLocator = By.cssSelector("tr[role='row'][tabindex='0']");
     private final By pokemonsListPositionLocator = By.cssSelector("td[aria-colindex='1']");
     private final By pokemonsListNameLocator = By.cssSelector("td[aria-colindex='2']");
+    private final By pokemonsListTypeLocator = By.cssSelector("td[aria-colindex='3']");
     private final By pokemonsDetailsNameLocator = By.xpath("//h3");
-
+    private final By pokemonsDetailsTypeLocator = By.xpath("//h3/../div");
 
     public void goesToHomePage() {
         driver.get("https://shadforth.github.io/vue-pokedex/");
@@ -44,36 +45,59 @@ public class User {
 
     public void goesThroughAllMembersOfPokemonsListAndAssertThatListNameAndDetailsNameAreEqual() {
         List<WebElement> listOfPokemons = getAllPokemons();
-        assertThatListNameAndDetailsNameAreEqualForEachPokemonIn(listOfPokemons);
-    }
-
-    public void assertThatListNameAndDetailsNameAreEqualForEachPokemonIn(
-            List<WebElement> listOfPokemons) {
-
         listOfPokemons.forEach(pokemon -> {
 
             fromListOfPokemonsSelect(pokemon);
 
-            assertEqualityOf(listNameOf(pokemon), detailsNameOf(pokemon),
+            assertNameEqualityOf(listNameOf(pokemon), detailsNameOf(pokemon),
                     listPositionOf(pokemon));
         });
-
     }
 
-    public void assertEqualityOf(
+    public void goesThroughAllMembersOfPokemonsListAndAssertThatListTypeAndDetailsTypeAreEqual() {
+        List<WebElement> listOfPokemons = getAllPokemons();
+        listOfPokemons.forEach(pokemon -> {
+
+            fromListOfPokemonsSelect(pokemon);
+
+            assertTypeEqualityOf(listTypeOf(pokemon), detailsTypeOf(pokemon),
+                    listPositionOf(pokemon));
+        });
+    }
+
+    public void assertNameEqualityOf(
             String pokemonListName,
             String pokemonDetailsName,
             String pokemonListPosition) {
 
         Assertions.assertEquals(pokemonListName, pokemonDetailsName,
             "\n\n" +
-            "\t\t\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n" +
-            "\t\t\t!      Pokemon on list position: " + pokemonListPosition + "       !\n" +
-            "\t\t\t! list name and details name are different !\n" +
-            "\t\t\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n" +
+            "\t\t\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n" +
+            "\t\t\t!                     Pokemon with the list ID: " + pokemonListPosition
+            + "                       !\n" +
+            "\t\t\t! Name of pokemon in the list and name in pokemon's details are different !\n" +
+            "\t\t\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n" +
             "\n" +
-            "\t\t\t\tPokemon's list name   : " + pokemonListName + "\n" +
-            "\t\t\t\tPokemon's details name: " + pokemonDetailsName + "\n\n"
+            "\t\t\t\t               Pokemon's list name   : " + pokemonListName + "\n" +
+            "\t\t\t\t               Pokemon's details name: " + pokemonDetailsName + "\n\n"
+        );
+    }
+
+    public void assertTypeEqualityOf(
+            String pokemonListType,
+            String pokemonDetailsType,
+            String pokemonListPosition) {
+
+        Assertions.assertEquals(pokemonListType, pokemonDetailsType,
+            "\n\n" +
+            "\t\t\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n" +
+            "\t\t\t!                     Pokemon with the list ID: " + pokemonListPosition
+                                                                   + "                       !\n" +
+            "\t\t\t! Type of pokemon in the list and type in pokemon's details are different !\n" +
+            "\t\t\t!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n" +
+            "\n" +
+            "\t\t\t\t               Pokemon's list type   : " + pokemonListType + "\n" +
+            "\t\t\t\t               Pokemon's details type: " + pokemonDetailsType + "\n\n"
         );
     }
 
@@ -104,4 +128,23 @@ public class User {
         return pokemon.findElement(pokemonsListPositionLocator).getText();
     }
 
+    private String listTypeOf(WebElement pokemon) {
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(pokemonsListTypeLocator));
+        String[] pokemonListTypeArray = pokemon.findElement(pokemonsListTypeLocator).getText().split("/");
+        return switch (pokemonListTypeArray.length) {
+            case 1 -> pokemonListTypeArray[0].toUpperCase();
+            case 2 -> pokemonListTypeArray[0].toUpperCase() + " " + pokemonListTypeArray[1].toUpperCase();
+            default -> throw new IllegalStateException("Unexpected value: " + pokemonListTypeArray.length);
+        };
+    }
+
+    private String detailsTypeOf(WebElement pokemon) {
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(pokemonsDetailsTypeLocator));
+        List<WebElement> listOfPokemonDetailsType = driver.findElements(pokemonsDetailsTypeLocator);
+        return switch (listOfPokemonDetailsType.size()) {
+            case 3 -> listOfPokemonDetailsType.get(0).getText();
+            case 4 -> listOfPokemonDetailsType.get(0).getText() + " " + listOfPokemonDetailsType.get(1).getText();
+            default -> throw new IllegalStateException("Unexpected value: " + listOfPokemonDetailsType.size());
+        };
+    }
 }

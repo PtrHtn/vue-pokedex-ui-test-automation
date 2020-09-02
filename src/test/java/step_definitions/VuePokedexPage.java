@@ -21,12 +21,16 @@ public class VuePokedexPage {
 
     @When("user goes through all members of the Pokemons list")
     public void userGoesThroughAllMembersOfThePokemonsList() {
-        user.goesThroughAllMembersOfPokemonsListAndAssertThatListNameAndDetailsNameAreEqual();
     }
 
     @Then("user should see that name of the Pokemon in the list is equal to name of the Pokemon in the details section")
     public void userShouldSeeThatNameOfThePokemonInTheListIsEqualToNameOfThePokemonInTheDetailsSection() {
+        user.goesThroughAllMembersOfPokemonsListAndAssertThatListNameAndDetailsNameAreEqual();
     }
 
 
+    @Then("user should see that type of the Pokemon in the list is equal to type of the Pokemon in the details section")
+    public void userShouldSeeThatTypeOfThePokemonInTheListIsEqualToTypeOfThePokemonInTheDetailsSection() {
+        user.goesThroughAllMembersOfPokemonsListAndAssertThatListTypeAndDetailsTypeAreEqual();
+    }
 }
