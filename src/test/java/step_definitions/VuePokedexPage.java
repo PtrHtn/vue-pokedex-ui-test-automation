@@ -33,4 +33,12 @@ public class VuePokedexPage {
     public void userShouldSeeThatTypeOfThePokemonInTheListIsEqualToTypeOfThePokemonInTheDetailsSection() {
         user.goesThroughAllMembersOfPokemonsListAndAssertThatListTypeAndDetailsTypeAreEqual();
     }
+
+    @When("user enter {string} to the search bar")
+    public void userPokemonsNameEnterToTheSearchField(String pokemonsName) {
+    }
+
+    @Then("only {string} is displayed in the list")
+    public void onlyIsDisplayedInTheList(String pokemonsName) {
+    }
 }
