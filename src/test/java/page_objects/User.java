@@ -22,6 +22,7 @@ public class User {
     private final By pokemonsListTypeLocator = By.cssSelector("td[aria-colindex='3']");
     private final By pokemonsDetailsNameLocator = By.xpath("//h3");
     private final By pokemonsDetailsTypeLocator = By.xpath("//h3/../div");
+    private final By searchBar = By.id("search-bar");
 
     public void goesToHomePage() {
         driver.get("https://shadforth.github.io/vue-pokedex/");
@@ -147,4 +148,10 @@ public class User {
             default -> throw new IllegalStateException("Unexpected value: " + listOfPokemonDetailsType.size());
         };
     }
+
+    public void enterIntoSearchBar(String pokemonsName) {
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(searchBar));
+        driver.findElement(searchBar).sendKeys(pokemonsName);
+    }
+
 }
