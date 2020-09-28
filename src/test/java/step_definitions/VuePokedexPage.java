@@ -36,6 +36,7 @@ public class VuePokedexPage {
 
     @When("user enter {string} to the search bar")
     public void userPokemonsNameEnterToTheSearchField(String pokemonsName) {
+        user.enterIntoSearchBar(pokemonsName);
     }
 
     @Then("only {string} is displayed in the list")
