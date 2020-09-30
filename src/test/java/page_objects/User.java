@@ -154,4 +154,14 @@ public class User {
         driver.findElement(searchBar).sendKeys(pokemonsName);
     }
 
+    public void canSeeInList(String pokemonsName) {
+        List<WebElement> listOfPokemons = getAllPokemons();
+        listOfPokemons.forEach(pokemon -> {
+
+            Assertions.assertTrue(listNameOf(pokemon).contains(pokemonsName));
+
+            System.out.println(listNameOf(pokemon));
+            System.out.println(pokemonsName);
+        });
+    }
 }
