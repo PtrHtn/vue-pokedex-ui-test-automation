@@ -41,5 +41,6 @@ public class VuePokedexPage {
 
     @Then("only {string} is displayed in the list")
     public void onlyIsDisplayedInTheList(String pokemonsName) {
+        user.canSeeInList(pokemonsName);
     }
 }
