@@ -3,7 +3,7 @@
 
 ### Built with
 - [JUnit 5 v5.7.0](https://github.com/junit-team/junit5)
-- [Cucumber v6.7.0](https://github.com/cucumber/cucumber)
+- [Cucumber v6.8.0](https://github.com/cucumber/cucumber)
 - [OpenJDK JDK 14](https://jdk.java.net/14/)
 - [Selenium v4.0.0-alpha-6](https://github.com/SeleniumHQ/selenium)
 - [webdrivermanager v4.2.2](https://github.com/bonigarcia/webdrivermanager)
