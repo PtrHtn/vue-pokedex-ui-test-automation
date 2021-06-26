@@ -18,7 +18,7 @@ public class CucumberHooks {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driverWait = new WebDriverWait(driver,  Duration.ofSeconds(10));
+        driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @After

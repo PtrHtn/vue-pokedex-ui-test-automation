@@ -23,6 +23,7 @@ public class User {
     private final By pokemonsDetailsNameLocator = By.xpath("//h3");
     private final By pokemonsDetailsTypeLocator = By.xpath("//h3/../div");
 
+    //navigateTo(String url)
     public void goesToHomePage() {
         driver.get("https://shadforth.github.io/vue-pokedex/");
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(pokeballLocator));
