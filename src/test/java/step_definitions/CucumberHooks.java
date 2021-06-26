@@ -22,7 +22,10 @@ public class CucumberHooks {
     }
 
     @After
-    public void afterScenario() {
-        driver.close();
+    public void afterScenario()
+    {
+//        driver.close();
+        driver.manage().deleteAllCookies();
+        driver.quit();
     }
 }

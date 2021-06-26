@@ -22,6 +22,7 @@ public class User {
     private final By pokemonsListTypeLocator = By.cssSelector("td[aria-colindex='3']");
     private final By pokemonsDetailsNameLocator = By.xpath("//h3");
     private final By pokemonsDetailsTypeLocator = By.xpath("//h3/../div");
+    private final By searchBar = By.id("search-bar");
 
     //navigateTo(String url)
     public void goesToHomePage() {
@@ -147,5 +148,21 @@ public class User {
             case 4 -> listOfPokemonDetailsType.get(0).getText() + " " + listOfPokemonDetailsType.get(1).getText();
             default -> throw new IllegalStateException("Unexpected value: " + listOfPokemonDetailsType.size());
         };
+    }
+
+    public void enterIntoSearchBar(String pokemonsName) {
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(searchBar));
+        driver.findElement(searchBar).sendKeys(pokemonsName);
+    }
+
+    public void canSeeInList(String pokemonsName) {
+        List<WebElement> listOfPokemons = getAllPokemons();
+        listOfPokemons.forEach(pokemon -> {
+
+            Assertions.assertTrue(listNameOf(pokemon).contains(pokemonsName));
+
+            System.out.println(listNameOf(pokemon));
+            System.out.println(pokemonsName);
+        });
     }
 }

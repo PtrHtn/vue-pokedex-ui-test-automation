@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         glue = {"classpath:step_definitions", "helpers"},
         monochrome = false,
         dryRun = false,
-        tags = ("@SmokeTest")
+        tags = ("@pokedex")
 )
 
 public class VuePokedexRunner {

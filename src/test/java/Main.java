@@ -4,7 +4,7 @@ public class Main {
 
         String[] arguments = {
                 "-g", "classpath:step_definitions",
-                "-t", "@SmokeTest",
+                "-t", "@pokedex",
                 "classpath:feature_files",
                 "-m"
         };
