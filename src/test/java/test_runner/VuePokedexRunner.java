@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
                 , "json:target/cucumber-report/cucumber-default-json-report.json"
                 , "html:target/cucumber-report/cucumber-default-html-report.html"
                 , "summary"
+                , "me.jvt.cucumber.report.PrettyReports:target/cucumber-report"
         },
         features = {"classpath:feature_files"},
         glue = {"classpath:step_definitions", "helpers"},
