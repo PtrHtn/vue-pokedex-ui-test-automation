@@ -1,6 +1,6 @@
 @pokedex
 Feature: Vue Pokedex
-  Will verify if Vue Pokedex app is working as expected
+  Will verify equality of Pokemon's details 
 
   Background:
     Given user is on the homepage Vue Pokedex site
@@ -16,12 +16,3 @@ Feature: Vue Pokedex
     When user goes through all members of the Pokemons list
     Then user should see that type of the Pokemon in the list is equal to type of the Pokemon in the details section
 
-  @MultiTest
-  Scenario Outline: User can search pokemon using search bar
-    When user enter "<pokemonsName>" to the search bar
-    Then only "<pokemonsName>" is displayed in the list
-    Examples:
-    |pokemonsName|
-    |Arbok     |
-    |Bellossom|
-    |Caterpie|
