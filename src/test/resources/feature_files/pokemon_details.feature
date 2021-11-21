@@ -1,6 +1,6 @@
 @pokedex
-Feature: Vue Pokedex
-  Will verify equality of Pokemon's details 
+Feature: Pokemon details
+  Will verify equality of Pokemon details in the list and details section
 
   Background:
     Given user is on the homepage Vue Pokedex site
