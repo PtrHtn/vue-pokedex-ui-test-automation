@@ -19,6 +19,6 @@ import org.junit.runner.RunWith;
         tags = ("@pokedex")
 )
 
-public class VuePokedexRunner {
+public class TestRunnerVuePokedex {
 }
 

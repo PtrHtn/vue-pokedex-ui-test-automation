@@ -12,6 +12,7 @@ public class VuePokedexPage {
     @Given("user is on the homepage Vue Pokedex site")
     public void userIsOnTheHomepageVuePokedexSite() {
         user.goesToHomePage();
+//        new User().goesToHomePage();
     }
 
     @Then("user should see pokeball on the page")
