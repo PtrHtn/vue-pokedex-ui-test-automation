@@ -8,12 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class User {
 
     private final WebDriver driver = CucumberHooks.driver;
-    private final WebDriverWait driverWait = CucumberHooks.driverWait;
+    private final WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     private final By pokeballLocator = By.cssSelector("img[class='pokemon-info-panel-pokeball']");
     private final By pokemonsListLocator = By.cssSelector("tr[role='row'][tabindex='0']");
