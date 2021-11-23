@@ -12,6 +12,12 @@
 - [Git](https://git-scm.com)
 - [JDK 14+](https://openjdk.java.net/)
 - [Maven 3.6.3+](https://maven.apache.org)
-- [Chrome browser](https://www.google.com/chrome/), _tested with version 84 and 95_
+- [Chrome browser](https://www.google.com/chrome/), _tested with versions 95_
+- [Firefox browser](https://www.mozilla.org/en-US/firefox/new/), _tested with versions 94_
+
+### To run automation in Chrome Browser, enter:
+- `mvn clean test -Dbrowser=chrome` from the root directory
+### To run automation in Firefox Browser, enter:
+- `mvn clean test -Dbrowser=firefox` from the root directory
 
 
